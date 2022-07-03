@@ -1,0 +1,15 @@
+{
+  "name": "Dependabot Automerge Extension",
+  "description": "Add 'merge all' button to Github for Dependabot PRs.",
+  "author": "stscoundrel <silvennoinen.sampo@gmail.com>",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "permissions": ["tabs"],
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/**/pulls"],
+      "js": ["dist/dependabot-dom.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
