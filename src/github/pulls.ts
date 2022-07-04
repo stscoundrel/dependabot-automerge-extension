@@ -15,9 +15,18 @@ const openLinksTonewTabs = (links: string[]) => {
   });
 };
 
-export const hasDependabotPrs = (): boolean => true;
+export const hasDependabotPrs = (): boolean => {
+  const prs = Array.from(document.querySelectorAll(SELECTORS.GITHUB_ISSUE_ELEMENT));
+  const dependabotPrs = getDependabotPrs(prs);
 
-export const mergeAllDependabotPRs = () => {
+  if (dependabotPrs.length > 0) {
+    return true;
+  }
+
+  return false;
+};
+
+export const openDependabotPrsToBeMerged = () => {
   const prs = Array.from(document.querySelectorAll(SELECTORS.GITHUB_ISSUE_ELEMENT));
   const dependabotPrs = getDependabotPrs(prs);
   const links = getLinks(dependabotPrs);
@@ -29,5 +38,5 @@ export const mergeAllDependabotPRs = () => {
 
 export default {
   hasDependabotPrs,
-  mergeAllDependabotPRs,
+  openDependabotPrsToBeMerged,
 };

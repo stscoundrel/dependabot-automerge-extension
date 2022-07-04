@@ -1,8 +1,8 @@
-import { hasDependabotPrs, mergeAllDependabotPRs } from './github/pulls';
+import { hasDependabotPrs, openDependabotPrsToBeMerged } from './github/pulls';
 import { SELECTORS } from './github/selectors';
 
 const mergeAllBtnAction = () => {
-  mergeAllDependabotPRs();
+  openDependabotPrsToBeMerged();
 };
 
 const createMergeButton = (): HTMLButtonElement => {
