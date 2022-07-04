@@ -14,6 +14,9 @@ module.exports = {
     es2020: true,
     'jest/globals': true,
   },
+  globals: {
+    chrome: true,
+  },
   rules: {
     'import/extensions': 0,
     'import/no-unresolved': 0,

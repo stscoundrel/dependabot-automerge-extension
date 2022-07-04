@@ -8,7 +8,7 @@
   "content_scripts": [
     {
       "matches": ["https://github.com/**/pulls"],
-      "js": ["dist/dependabot-dom.js"],
+      "js": ["dist/dependabot-pulls-dom.js"],
       "run_at": "document_end"
     }
   ]

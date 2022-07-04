@@ -8,6 +8,12 @@ const getLinks = (prElements: Element[]): string[] => prElements
   .filter((link) => typeof link === 'string')
   .map((link) => `${link}?MERGE_DEPENDABOT_PR`);
 
+const openLinksTonewTabs = (links: string[]) => {
+  links.forEach((link) => {
+    window.open(link);
+  });
+};
+
 export const hasDependabotPrs = (): boolean => true;
 
 export const mergeAllDependabotPRs = () => {
@@ -15,7 +21,9 @@ export const mergeAllDependabotPRs = () => {
   const dependabotPrs = getDependabotPrs(prs);
   const links = getLinks(dependabotPrs);
 
-  console.log(links);
+  // Opening links should be enough to merge them.
+  // Individual PR page action takes care of the rest.
+  openLinksTonewTabs(links);
 };
 
 export default {

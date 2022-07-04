@@ -22,12 +22,8 @@ const appendMergeButton = (btn: HTMLButtonElement) => {
 };
 
 window.addEventListener('load', () => {
-  console.log('In plugin!');
   if (hasDependabotPrs()) {
-    console.log('Totally found dependabot!');
     const button = createMergeButton();
     appendMergeButton(button);
   }
 });
-
-export default {};
