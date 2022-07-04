@@ -1,3 +1,4 @@
+import { MERGE_QUERY_PARAM } from './constants';
 import { SELECTORS } from './selectors';
 
 const getDependabotPrs = (prElements: Element[]): Element[] => prElements
@@ -6,7 +7,7 @@ const getDependabotPrs = (prElements: Element[]): Element[] => prElements
 const getLinks = (prElements: Element[]): string[] => prElements
   .map((element) => element.querySelector(SELECTORS.GITHUB_ISSUE_LINK)?.getAttribute('href'))
   .filter((link) => typeof link === 'string')
-  .map((link) => `${link}?MERGE_DEPENDABOT_PR`);
+  .map((link) => `${link}?${MERGE_QUERY_PARAM}=true`);
 
 const openLinksTonewTabs = (links: string[]) => {
   links.forEach((link) => {

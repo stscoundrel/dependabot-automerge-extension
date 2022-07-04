@@ -10,6 +10,11 @@
       "matches": ["https://github.com/**/pulls"],
       "js": ["dist/dependabot-pulls-dom.js"],
       "run_at": "document_end"
+    },
+    {
+      "matches": ["https://github.com/**/pull/*"],
+      "js": ["dist/dependabot-pull-dom.js"],
+      "run_at": "document_end"
     }
   ]
 }
