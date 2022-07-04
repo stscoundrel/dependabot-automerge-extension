@@ -36,7 +36,8 @@
     "test:unit": "yarn jest",
     "test:coverage": "jest --coverage --coverageThreshold='{\"global\":{\"statements\":\"90\", \"functions\":\"90\", \"branches\":\"90\", \"lines\":\"90\"}}'",
     "check-types": "tsc --noEmit",
-    "build": "parcel build src/dependabot-dom.ts",
+    "build-pulls": "parcel build src/dependabot-pulls-dom.ts",
+    "build": "yarn build-pulls",
     "prepublishOnly": "yarn build && yarn test:unit"
   }
 }
