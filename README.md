@@ -12,7 +12,7 @@ Essentially, this is just automation script to replace the manual work. Hopefull
 
 - Inserts new "Merge all" button to pull requests page in Github
 - Only appears if there are open Dependabot PRs
-- The button hijacks the browser for a bit. It will open all Dependabot PRs and add the magic automerge comment.
+- The button hijacks the browser for a bit. It will open all Dependabot PRs in their own tabs and add the magic automerge comment. Extension will close tabs once commented.
 - Dependabot handles the rest. If CI has passed, dependabot will merge the comment. If conflicts arise, dependabot will rebase them.
 
 ## Caveats
