@@ -1,5 +1,6 @@
 import { isDependabotPr, shouldMerge } from './github/pull';
 import { SELECTORS } from './github/selectors';
+import { getRandomWaitBetween } from './utils/time';
 
 const writeMergeComment = () => {
   const commentField: HTMLTextAreaElement | null = document.querySelector(
@@ -22,7 +23,7 @@ const writeMergeComment = () => {
       if (button.innerHTML.includes(SELECTORS.GITHUB_COMMENT_BUTTON_TEXT)) {
         setTimeout(() => {
           button.click();
-        }, 1000);
+        }, getRandomWaitBetween(2000, 3000));
       }
     });
   }
@@ -31,7 +32,7 @@ const writeMergeComment = () => {
 const closeCurrentTab = () => {
   setTimeout(() => {
     window.close();
-  }, 2000);
+  }, getRandomWaitBetween(8000, 12000));
 };
 
 window.addEventListener('load', () => {
