@@ -1,33 +1,33 @@
-const hasDependabotPrs = (): boolean => true;
+import { hasDependabotPrs, mergeAllDependabotPRs } from './github/pulls';
+import { SELECTORS } from './github/selectors';
 
-const getDependabotPrs = (prElements: Element[]): Element[] => prElements
-  .filter((element: Element) => element.querySelector('.opened-by a')?.innerHTML === 'dependabot');
+const mergeAllBtnAction = () => {
+  mergeAllDependabotPRs();
+};
 
-const getLinks = (prElements: Element[]) : Array<string | null | undefined> => prElements.map((element) => element.querySelector('.js-navigation-open')?.getAttribute('href'));
+const createMergeButton = (): HTMLButtonElement => {
+  const dependabotBtn = document.createElement('button');
+  dependabotBtn.textContent = 'Merge all Dependabot PRs';
+  dependabotBtn.classList.add('btn', 'btn-primary');
+  dependabotBtn.onclick = mergeAllBtnAction;
 
-const mergeAllDependabotPRs = () => {
-  const prs = Array.from(document.querySelectorAll('.js-issue-row'));
-  const dependabotPrs = getDependabotPrs(prs);
-  const links = getLinks(dependabotPrs);
+  return dependabotBtn;
+};
 
-  console.log(links);
+const appendMergeButton = (btn: HTMLButtonElement) => {
+  const parent = document.querySelector(SELECTORS.MERGE_BUTTON_PARENT);
+  if (parent) {
+    parent.appendChild(btn);
+  }
 };
 
 window.addEventListener('load', () => {
+  console.log('In plugin!');
   if (hasDependabotPrs()) {
-    console.log('Doing the deed');
-
-    const dependabotBtn = document.createElement('button');
-    dependabotBtn.textContent = 'Merge all Dependabot PRs';
-    dependabotBtn.classList.add('btn', 'btn-primary');
-    dependabotBtn.onclick = () => {
-      console.log('Button was indeed clicked!');
-      mergeAllDependabotPRs();
-    };
-    const base = document.querySelector('.repository-content');
-    if (base) {
-      base.classList.add('vittusaatana');
-      base.appendChild(dependabotBtn);
-    }
+    console.log('Totally found dependabot!');
+    const button = createMergeButton();
+    appendMergeButton(button);
   }
 });
+
+export default {};
