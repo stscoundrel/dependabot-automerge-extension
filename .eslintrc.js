@@ -9,8 +9,13 @@ module.exports = {
   ],
   env: {
     node: true,
+    browser: true,
     es6: true,
+    es2020: true,
     'jest/globals': true,
+  },
+  globals: {
+    chrome: true,
   },
   rules: {
     'import/extensions': 0,

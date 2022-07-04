@@ -1,14 +1,6 @@
-import exampleModule from '../src';
-
-describe('Example tests', () => {
+describe('Dummy test suite', () => {
   test('Test suite runs', () => {
     expect(true).toBeTruthy();
     expect(false).toBeFalsy();
-  });
-
-  test('Example function returns correct string', () => {
-    const result = exampleModule.example();
-
-    expect(result).toBe('test string');
   });
 });
