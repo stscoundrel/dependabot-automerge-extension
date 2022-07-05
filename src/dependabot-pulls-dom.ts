@@ -16,8 +16,11 @@ const createMergeButton = (): HTMLButtonElement => {
 
 const appendMergeButton = (btn: HTMLButtonElement) => {
   const parent = document.querySelector(SELECTORS.MERGE_BUTTON_PARENT);
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('mt-3', 'text-center');
   if (parent) {
-    parent.appendChild(btn);
+    wrapper.appendChild(btn);
+    parent.appendChild(wrapper);
   }
 };
 
