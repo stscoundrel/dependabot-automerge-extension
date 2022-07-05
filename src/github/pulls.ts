@@ -1,4 +1,5 @@
-import { MERGE_QUERY_PARAM } from './constants';
+import { wait } from '../utils/time';
+import { MERGE_QUERY_PARAM, WAIT_PERIODS } from './constants';
 import { SELECTORS } from './selectors';
 
 const getDependabotPrs = (prElements: Element[]): Element[] => prElements
@@ -9,10 +10,17 @@ const getLinks = (prElements: Element[]): string[] => prElements
   .filter((link) => typeof link === 'string')
   .map((link) => `${link}?${MERGE_QUERY_PARAM}=true`);
 
-const openLinksTonewTabs = (links: string[]) => {
-  links.forEach((link) => {
-    window.open(link);
-  });
+/**
+ * Opens links to new tabs.
+ * Requires a little wait between opens, so that
+ * the one that opens remains "active" in view for a bit.
+ */
+const openLinksTonewTabs = async (links: string[]) => {
+  for (let i = 0; i < links.length; i += 1) {
+    window.open(links[i]);
+    // eslint-disable-next-line no-await-in-loop
+    await wait(WAIT_PERIODS.OPEN_NEW_TAB);
+  }
 };
 
 export const hasDependabotPrs = (): boolean => {
