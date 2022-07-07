@@ -6,6 +6,8 @@ Add "merge all" button to Github for Dependabot PRs. Chrome extension.
 
 Work-in-progress. Not in extension store yet. You can clone, build & install it to Chrome in development mode. It works, but I'm still tweaking it as problems arise in my own usage.
 
+`yarn build`
+
 ## Motivation
 
 Every month Dependabot opens hundreds of pull requests to dozens of my repositories. Most of the time CI just passes for them all and they are safe to merge. However, I still need to add the "dependabot merge" comment to each of them, or merge them myself. While dependabot has some strategies for working with automatic Github merge, I'd rather not go through all the repos and set up automerge the way Github & Dependabot want it.
