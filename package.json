@@ -19,7 +19,7 @@
     "eslint": "^8.16.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^26.4.6",
+    "eslint-plugin-jest": "^26.7.0",
     "jest": "^28.1.0",
     "parcel": "^2.6.2",
     "ts-jest": "^28.0.7",
