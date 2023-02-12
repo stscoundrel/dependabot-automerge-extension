@@ -7,7 +7,7 @@
   "permissions": ["tabs"],
   "content_scripts": [
     {
-      "matches": ["https://github.com/**/pulls"],
+      "matches": ["https://github.com/*"],
       "js": ["dist/dependabot-pulls-dom.js"],
       "run_at": "document_end"
     },
