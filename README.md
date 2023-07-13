@@ -4,7 +4,9 @@ Add "merge all" button to Github for Dependabot PRs. Chrome extension.
 
 # Status
 
-Work-in-progress. Not in extension store yet. You can clone, build & install it to Chrome in development mode. It works, but I'm still tweaking it as problems arise in my own usage.
+Not in extension store, but you can clone, build & install it to Chrome in development mode.
+
+I used this extension actively for a year-or-so, but nowadays Dependabot has [grouped updates](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups) option, which much reduces need for this extension.
 
 `yarn build`
 
